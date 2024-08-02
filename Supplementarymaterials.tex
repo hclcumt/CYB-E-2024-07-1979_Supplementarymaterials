@@ -1,0 +1,800 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{hyperref}
+
+\makeatletter
+\def\UrlAlphabet{%
+      \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+      \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+      \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+      \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+      \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+      \do\Y\do\Z}
+\def\UrlDigits{\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9\do\0}
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\g@addto@macro{\UrlBreaks}{\UrlAlphabet}
+\g@addto@macro{\UrlBreaks}{\UrlDigits}
+\makeatother
+\usepackage{hyperref}
+\usepackage[hyphenbreaks]{breakurl}
+\usepackage{times,amsmath,amsfonts,amssymb,subfigure,xspace,lscape} % Add all your packages here
+\usepackage{mdframed,multirow}
+%\usepackage{CJK}
+\usepackage{pifont}
+\usepackage{bm}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{booktabs,longtable}
+\usepackage{stfloats}  %图片跨栏
+\usepackage{subfigure}
+%\usepackage{algorithmic}
+\usepackage{cite}
+\usepackage{stfloats}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+
+\usepackage{makecell}
+
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{booktabs,multirow,longtable}
+\usepackage{amssymb}
+\usepackage{balance}
+\usepackage{xspace}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{xcolor}
+%\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{rotating}
+%\usepackage{multicol}
+\usepackage{supertabular}
+ % \usepackage{caption2}%表格的标题和Table在同一行，可以节省版面
+  \usepackage{ragged2e}
+\usepackage{booktabs,multirow,longtable}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage{supertabular}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{mdframed,multirow}
+\usepackage{arydshln}
+    % 导入包
+\usepackage{hyperref}
+    % 格式设置
+\hypersetup{hidelinks,colorlinks=true,allcolors=black,pdfstartview=Fit,breaklinks=true}
+\usepackage[justification=centering]{caption} %让图标题居中的包
+
+\usepackage[ruled]{algorithm2e}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}} % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+\bibliographystyle{IEEEtran}
+% correct bad hyphenation here
+\hyphenation{}
+
+\usepackage{stfloats}
+%\setlength{\belowcaptionskip}{-0.2cm}
+
+
+
+%
+\begin{document}
+
+\title{"A surrogate-assisted evolutionary algorithm using special points for expensive multi-objective optimization"supplementary materials}
+%\author{Chun-lin~He, Yong~Zhang,~\IEEEmembership{Member,~IEEE,} Dun-Wei~Gong,~\IEEEmembership{Member,~IEEE,} Xiao-Zhi~Gao, Chao~Peng, Yi-Nan~ Guo, Xiao-Yan~Sun}% <-this % stops a space
+
+
+
+%
+%\thanks{This study was supported by the National Natural Science Foundation of China under Grant 62273348 and 62133015. (\emph{Corresponding author: Yong Zhang, Dun-wei Gong})}
+%\thanks{{ Chun-lin He, Yong Zhang, Chao Peng, and Xiao-Yan Sun are with the School of Information and Control Engineering, China University of Mining and Technology, Xuzhou 221008, China (e-mail: 18912164815@163.com; yongzh401@126.com; xysun78@126.com )}}
+%\thanks{{Yi-nan Guo, is with China University of Mining and Technology, Bei Jing, (e-mail:guoyinan@cumt.edu.cn).}}
+%\thanks{{Dun-wei Gong, is with the School of Information Science and Technology, Qingdao University of Science and Technology, Qingdao, Shandong, 266061, PR China, (e-mail:dwgong@vip.163.com).}}
+%\thanks{Xiao-zhi Gao is with the School of Computing, University of Eastern Finland, Kuopio, Finland (e-mail: xiao.z.gao@gmail.com).}
+%
+%\thanks{Digital Object Identifier XXXXXXXXX}}
+
+% note the % following the last \IEEEmembership and also \thanks -
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+%
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+% The paper headers
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~**, No.~**, 2024}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+
+%\author{Chun-lin~He，
+     %  Yong~Zhang,~\IEEEmembership{Member,~IEEE,}
+      % Dun-Wei~Gong,~\IEEEmembership{Member,~IEEE,}
+       % Xiao-Zhi~Gao, Chao~Peng, Yi-Nan~ Guo, Xiao-Yan~Sun% <-this % stops a space
+%\thanks{This study was supported by the National Natural Science Foundation of China under Grant 62273348 and 62133015. (\emph{Corresponding author: Yong Zhang, Dun-wei Gong})}
+%\thanks{{ Chun-lin He, Yong Zhang, Chao Peng, Yi-nan Guo and Xiao-Yan Sun are with the School of Information and Control Engineering, China University of Mining and Technology, Xuzhou 221008, China (e-mail: 18912164815@163.com; yongzh401@126.com; xysun78@126.com )}}
+%\thanks{{Dun-wei Gong, is with the School of Information Science and Technology, Qingdao University of Science and Technology, Qingdao, Shandong, 266061, PR China, (e-mail:dwgong@vip.163.com).}}
+%\thanks{{Xiao-zhi Gao is with the School of Computing, University of Eastern Finland, Kuopio, Finland (e-mail: xiao.z.gao@gmail.com).}}
+
+%\thanks{Digital Object Identifier XXXXXXXXX}}
+
+% note the % following the last \IEEEmembership and also \thanks -
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+%
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+
+
+% make the title area
+\maketitle
+
+
+
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+
+
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+
+
+%\section{About Section IV.A}
+ This is the supplementary materials of "A surrogate-assisted evolutionary algorithm using special points for expensive multi-objective optimization"
+
+
+\section{RVEA}
+For MOPs, scholars have proposed a lot of evolutionary algorithms \cite{17}. RVEA has been widely used for multi-objective optimization problems, since it can balance the convergence and diversity of population very well \cite{19,20}. RVEA uses the simplex lattice method to get the set of uniformly distributed reference vectors, based on which the whole objective space is divided into multiple subspaces. Then, according to the angle between individual and reference vector, all individuals are assigned to corresponding reference vectors.
+
+ Figure S1 shows an example with two reference vectors($v_{i}$ and $v_{i+1}$) and three individuals (${\bar f^1}$,${\bar f^2}$ and ${\bar f^3}$). Here, the angle between ${\bar f^1}$ and $v_i$ is $\theta _i^1$, and the angle between ${\bar f^1}$ and $v_{i+1}$ is $\theta _{i+1}^1$. Since$\theta _i^1 < \theta _{i + 1}^1$, the individual ${\bar f^1}$ is assigned to the reference vector $v_i$. Similarly, ${\bar f^2}$ and ${\bar f^3}$ are assigned to the reference vector $v_{i+1}$.
+
+\begin{figure}[htpt]
+\renewcommand{\thefigure}{S1}
+\setlength{\abovecaptionskip}{0.cm}
+\setlength{\belowcaptionskip}{-0.cm}
+\centering
+{\includegraphics[height=7cm, width=7cm]{figure//fig1.eps}}
+\caption{Example for individuals assigned to reference vectors}
+\end{figure}
+
+Specifically, RVEA uses the angle penalized distance (APD) to select appropriate individuals for each reference vector. For the current reference vector, the smaller the APD value of an individual, the higher the probability that it is selected. The specific formula of APD is as follows:
+\begin{equation}%\small %footnotesize
+\begin{array}{l}
+{d^j} = \left( {1 + \varphi \left( {{\theta ^j}} \right)} \right) \cdot \left\| {{{\bar f}^j}} \right\|
+\end{array}
+\end{equation}
+where, $\left\| {{{\bar f}^j}} \right\|$ is the distance between the $j$-th individual and the origin in the objective space. ${\theta ^j}$ represents the angle between $v_j$ and the objective vector ${\bar f^j}$; $\varphi\left( {{\theta ^j}} \right)$ is a penalty function, whose value is ${\rm{M}} \cdot {\left( {{t \mathord{\left/
+ {\vphantom {t {{t_{\max }}}}} \right.
+ \kern-\nulldelimiterspace} {{t_{\max }}}}} \right)^\alpha } \cdot {{{\theta ^j}} \mathord{\left/
+ {\vphantom {{{\theta ^j}} {{\gamma _{{v_j}}}}}} \right.
+ \kern-\nulldelimiterspace} {{\gamma _{{v_j}}}}}$, where, $\alpha$ is the user-specified parameter, and ${\gamma _{{v_j}}}$ is the angle of other reference vectors that form the smallest angle with ${v_j}$.
+
+In order to find a group of non dominated individuals with good convergence and diversity, it is necessary to adaptively adjust the reference vectors in iteration process. Aimed at the issue, the reference \cite{19} provides an adaptively updating method of reference vector, as follows:
+\begin{equation}%\small %footnotesize
+\begin{array}{l}
+{v_{t + 1,i}} = \frac{{{v_{0,i}} \circ \left( {z_t^{\max } - z_t^{\min }} \right)}}{{\left\| {{v_{0,i}} \circ \left( {z_t^{\max } - z_t^{\min }} \right)} \right\|}}
+\end{array}
+\end{equation}
+where, " $\circ$" represents the Hadamard product; ${v_{0,i}}$ is the initial reference vector; $z_t^{\max }$ and $z_t^{\min }$ are the maximum and minimum of each objective function obtained by the population respectively.
+
+
+
+\section{Part of the figures and tables}
+In order to ensure the simple and beautiful layout of the main text, we display Fig.S1-Fig.S8 and Table S1-Table S12  in this section.
+
+\begin{table}[h]
+\renewcommand{\thetable}{S1}
+\centering
+\caption{Characteristics of each test function}
+\begin{tabular}{cccl}
+\hline
+&Name     & Number of objectives                   & Characteristic                              \\ \hline
+&DTLZ2    &2,3                                     &normal                           \\
+&DTLZ5    &2,3                                     &degenerated                       \\
+&DTLZ7    &2,3                                     &discontinuous                    \\
+&IMOP1    &2                                       &strongly convex                    \\
+&IMOP2    &2                                       &strongly concave                    \\
+&IMOP3    &2                                       &discontinuous                    \\
+&IMOP4    &3                                       &concave-convex                    \\
+&IMOP5    &3                                       &discontinuous                    \\
+&IMOP6    &3                                       &discontinuous                    \\
+&IMOP7    &3                                       &Mixed                     \\
+&IMOP8    &3                                       &discontinuous                    \\
+&WFG1     &2,3                                     &concave-convex                    \\
+&WFG2     &2,3                                     &discontinuous                     \\
+&WFG3     &2,3                                     &degenerated                    \\
+&WFG4     &2,3                                     &Deceptive                    \\
+&WFG5     &2,3                                     &normal                    \\
+&WFG6     &2,3                                     &normal                    \\
+&WFG7     &2,3                                     &normal                   \\
+&WFG8     &2,3                                     &normal                   \\
+&WFG7     &2,3                                     &Deceptive                   \\\hline
+
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+ \section{Experiments}
+
+
+
+\begin{table*}[htbp!]\footnotesize
+\renewcommand{\thetable}{S2}
+\centering
+\caption{HV values obtained by DK-SAMOEA and 7 comparison algorithms on DTLZs when $D$=10}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem                & $Nf$                 & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD} & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{4}{*}{DTLZ2} & \multirow{2}{*}{2} & 3.3047e-1                  & 2.5167e-1                & 2.4188e-1                                                                 & 2.0119e-1                                                               & 2.7580e-1                 & 3.0908e-1                  & 2.6778e-1                & \textbf{3.3286e-1}                                                       \\
+                       &                    & 1.40e-3$\approx$                   & 2.44e-2+                 & 2.03e-2+                                                                  & 2.77e-2+                                                                & 1.61e-2+                  & 6.26e-3+                   & 3.07e-2+                 & 1.22e-3                                                        \\\cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3} & 2.4667e-1                  & 1.4782e-1                & 3.6075e-4                                                                 & 1.9124e-1                                                               & 2.0423e-1                 & 1.0723e-2                  & 1.9377e-1                & \textbf{5.0616e-1}                                                       \\
+                       &                    & 6.97e-2+                   & 5.82e-2+                 & 5.37e-4+                                                                  & 4.43e-2+                                                                & 4.18e-2+                  & 1.36e-2+                   & 5.64e-2+                 & 9.82e-3                                                         \\ \cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{DTLZ5} & \multirow{2}{*}{2} & 3.3263e-1                  & 2.4426e-1                & 2.1340e-1                                                                 & 2.0764e-1                                                               & 2.9800e-1                 & 3.0105e-1                  & 2.5565e-1                & \textbf{3.4336e-1}                                                       \\
+                       &                    & 7.08e-3+                   & 2.27e-2+                 & 4.32e-2+                                                                  & 1.48e-2+                                                                & 8.49e-3+                  & 4.17e-3+                   & 3.21e-2+                 & 1.40e-3                                                         \\ \cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3} & \textbf{2.6804e-1}         & 1.2164e-1                & 1.3520e-2                                                                 & 1.0134e-1                                                               & 2.1504e-1                 & 9.3121e-2                  & 1.8757e-1                & 2.4310e-1                                                                \\
+                       &                    & 1.18e-2-          & 5.03e-2+                 & 8.06e-3+                                                                  & 4.36e-2+                                                                & 2.72e-2+                  & 5.20e-2+                   & 1.22e-2+                 & 4.24e-3                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{DTLZ7} & \multirow{2}{*}{2} & 2.3800e-1                  & 1.5520e-1                & 7.7451e-2                                                                 & 1.9234e-4                                                               & 7.6971e-2                 & 2.1359e-1                  & 1.6023e-1                & \textbf{8.0990e-1}                                                       \\
+                       &                    & 1.75e-3+                   & 4.31e-2+                 & 2.60e-2+                                                                  & 3.57e-4+                                                                & 6.47e-2+                  & 4.40e-3+                   & 2.52e-2+                 & 1.48e-4                                                         \\ \cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3} & 1.9459e-1                  & 4.7493e-2                & 1.6158e-2                                                                 & /                                                                       & /                         & 8.9808e-2                  & 1.3412e-1                & \textbf{8.6586e-1}                                                       \\
+                       &                    & 3.79e-2+                   & 4.26e-2+                 & 1.03e-2+                                                                  & /                                                                       & /                         & 3.89e-2+                   & 2.32e-2+                 & 1.33e-3                                                         \\\cdashline{1-10}
+   \multicolumn{2}{c}{win/tie/lose}            & \multicolumn{1}{c}{4/1/1}  & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{6/0/0}                                                 & \multicolumn{1}{c}{6/0/0}                                               & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{6/0/0}  & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+
+\begin{table*}[htbp!]\footnotesize
+\renewcommand{\thetable}{S3}
+\centering
+\caption{IGD values obtained by DK-SAMOEA and 7 comparison algorithms on DTLZs when $D$=10}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem                & $Nf$                 & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD} & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{4}{*}{DTLZ2} & \multirow{2}{*}{2} & 1.4677e-2                  & 7.7719e-2                 & 1.0735e-1                                                                 & 1.1526e-1                                                               & 5.3867e-2                 & 3.8890e-2                  & 7.1117e-2                 & \textbf{1.4049e-2}                                                       \\
+                       &                    & 1.32e-3$\approx$                    & 1.75e-2+                  & 2.39e-2+                                                                  & 2.46e-2+                                                                & 1.00e-2+                  & 4.69e-3+                   & 2.00e-2+                  & 6.16e-4
+                       \\    \cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3} & 2.2670e-1                  & 3.2945e-1                 & 7.4434e-1                                                                 & 2.5361e-1                                                               & 3.1671e-1                 & 5.9504e-1                  & 2.8752e-1                 & \textbf{7.6875e-2}                                                       \\
+                       &                    & 3.68e-2+                   & 4.29e-2+                  & 4.85e-2+                                                                  & 2.19e-2+                                                                & 5.60e-2+                  & 4.60e-2+                   & 4.72e-2+                  & 5.60e-3                                                         \\ \cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{DTLZ5} & \multirow{2}{*}{2} & 1.8110e-2                  & 8.3195e-2                 & 1.2729e-1                                                                 & 1.0533e-1                                                               & 3.6982e-2                 & 3.8427e-2                  & 7.2668e-2                 & \textbf{1.3873e-2}                                                       \\
+                       &                    & 6.59e-3+                   & 1.40e-2+                  & 2.97e-2+                                                                  & 1.86e-2+                                                                & 5.84e-3+                  & 6.06e-3+                   & 1.61e-2+                  & 1.10e-3                                                         \\ \cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3} & \textbf{5.6753e-2}         & 1.7716e-1                 & 4.9584e-1                                                                 & 1.9168e-1                                                               & 1.1071e-1                 & 2.1053e-1                  & 1.1538e-1                 & 7.4509e-2                                                                \\
+                       &                    & 7.66e-3-          & 4.20e-2+                  & 2.94e-2                                                                   & 3.77e-2+                                                                & 1.74e-2+                  & 5.69e-2+                   & 6.63e-3+                  & 2.37e-3                                                                  \\ \cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{DTLZ7} & \multirow{2}{*}{2} & 2.7583e-2                  & 3.4843e-1                 & 7.2872e-1                                                                 & 1.5230e+0                                                               & 6.7968e-1                 & 6.4911e-2                  & 1.9750e-1                 & \textbf{2.3195e-2}                                                       \\
+                       &                    & 4.46e-3+                   & 2.98e-1+                  & 2.58e-1+                                                                  & 3.07e-1+                                                                & 4.15e-1+                  & 8.25e-3+                   & 6.15e-2+                  &1.05e-2                                                         \\
+                       & \multirow{2}{*}{3} & 2.9323e-1                  & 3.5351e-1                 & 1.0111e+0                                                                 & 2.2453e+0                                                               & 3.2980e+0                 & 2.8353e-1                  & 3.4787e-1                 & \textbf{2.7635e-1}                                                       \\
+                       &                    & 2.51e-1+                   & 6.14e-1+                  & 4.54e-1+                                                                  & 2.29e-1+                                                                & 7.07e-1+                  & 1.36e-1$\approx$                    & 6.82e-2+                  & 9.39e-2                                                         \\ \cdashline{1-10}[1pt/1pt]
+\multicolumn{2}{c}{win/tie/lose}            & \multicolumn{1}{c}{4/1/1}  & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{6/0/0}                                                 & \multicolumn{1}{c}{6/0/0}                                               & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{5/1/0}  & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[htbp!]\footnotesize
+\renewcommand{\thetable}{S4}
+\centering
+\caption{HV values obtained by DK-SAMOEA and 7 comparison algorithms on DTLZs when $D$=20}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem                & $Nf $                & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD} & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{4}{*}{DTLZ2} & \multirow{2}{*}{2} & 1.9124e-1                  & 6.3787e-2                 & 1.6248e-2                                                                 & 8.2663e-2                                                               & 1.6541e-1                 & 4.5133e-2                  & 1.7208e-1                 & \textbf{3.1775e-1}                                                       \\
+                       &                    & 7.39e-2+                   & 4.29e-2+                  & 1.15e-2+                                                                  & 3.49e-2+                                                                & 9.60e-3+                  & 4.10e-2+                  & 2.24e-2+                  & 2.87e-3                                                         \\ \cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3} & 2.4667e-1                  & 1.4782e-1                 & 3.6075e-4                                                                 & 1.9124e-1                                                               & 2.0423e-1                 & 1.0723e-2                  & 1.9377e-1                 & \textbf{4.7791e-1}                                                       \\
+                       &                    & 6.97e-2+                   & 5.82e-2+                  & 5.37e-4+                                                                  & 4.43e-2+                                                                & 4.18e-2+                  & 1.36e-2+                   & 5.64e-2+                  & 1.30e-2                                                        \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{DTLZ5} & \multirow{2}{*}{2} & 1.6251e-1                  & 6.5450e-2                 & 1.4740e-2                                                                 & 5.7180e-2                                                               & 1.7129e-1                 & 9.1738e-2                  & 1.6272e-1                 & \textbf{3.1910e-1}                                                       \\
+                       &                    & 2.85e-2+                   & 2.36e-2                   & 1.51e-2+                                                                  & 3.48e-2+                                                                & 2.24e-2 +                 & 3.61e-2 +                  & 1.91e-2+                  & 1.82e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3} & \textbf{2.6804e-1}         & 1.2164e-1                 & 1.3520e-2                                                                 & 1.0134e-1                                                               & 2.1504e-1                 & 9.3121e-2                  & 1.8757e-1                 & 2.6088e-1                                                                \\
+                       &                    & 1.18e-2$\approx$          & 5.03e-2+                  & 8.06e-3+                                                                  & 4.36e-2+                                                                & 2.72e-2+                  & 5.20e-2+                   & 1.22e-2+                  & 4.37e-3                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{DTLZ7} & \multirow{2}{*}{2} & 1.8304e-1                  & 2.3945e-2                 & 1.2755e-2                                                                 & /                                                                       & /                         & 3.9436e-2                  & 1.0033e-1                 & \textbf{8.0682e-1}                                                       \\
+                       &                    & 3.14e-2+                   & 1.51e-2+                  & 8.32e-3+                                                                  & /                                                                       & /                         & 4.25e-2+                  & 2.97e-2+                  & 8.10e-4                                                         \\\cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3} & 1.9459e-1                  & 4.7493e-2                 & 1.6158e-2                                                                 & /                                                                       & /                         & 8.9808e-2                  & 1.3412e-1                 & \textbf{8.6212e-1}                                                       \\
+                       &                    & 3.79e-2+                   & 4.26e-2+                  & 1.03e-2+                                                                  & /                                                                       & /                         & 3.89e-2+                   & 2.32e-2+                  & 8.51e-4                                                         \\ \cdashline{1-10}[1pt/1pt]
+\multicolumn{2}{c}{win/tie/lose}            & \multicolumn{1}{c}{5/1/0}  & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{6/0/0}                                                 & \multicolumn{1}{c}{6/0/0}                                               & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{6/0/0}  & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[htbp!]\footnotesize
+\renewcommand{\thetable}{S5}
+\centering
+\caption{IGD values obtained by DK-SAMOEA and 7 comparison algorithms on DTLZs when $D$=20}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem                & $Nf $                         & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD} & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{4}{*}{DTLZ2} & \multirow{2}{*}{2}          & 1.1730e-1                  & 2.5244e-1                 & 5.0090e-1                                                                 & 2.3086e-1                                                               & 1.6917e-1                 & 2.9260e-1                  & 1.2797e-1                 & \textbf{2.4687e-2}                                                       \\
+                       &                             & 6.24e-2+                  & 7.95e-2+                 & 6.24e-2 +                                                                 & 4.12e-2+                                                               & 2.10e-2+                 & 4.99e-2                    & 1.83e-2+                  & 1.38e-3
+                         \\\cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3}          & 2.2670e-1                  & 3.2945e-1                 & 7.4434e-1                                                                 & 2.5361e-1                                                               & 3.1671e-1                 & 5.9504e-1                  & 2.8752e-1                 & \textbf{8.9483e-2}                                                       \\
+                       &                             & 3.68e-2+                   & 4.29e-2+                  & 4.85e-2+                                                                  & 2.19e-2+                                                                & 5.60e-2+                  & 4.60e-2+                   & 4.72e-2+                  & 5.61e-3
+                       \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{DTLZ5} & \multirow{2}{*}{2}          & 1.3539e-1                  & 2.4917e-1                 & 4.9200e-1                                                                 & 2.2072e-1                                                               & 1.5847e-1                 & 2.1795e-1                  & 1.3926e-1                 & \textbf{2.3141e-2}                                                       \\
+                       &                             & 2.49e-2+                   & 2.59e-2+                  & 4.49e-2+                                                                  & 3.37e-2+                                                                & 3.01e-2+                 & 4.41e-2+                  & 2.25e-2+                  & 2.18e-3
+                        \\ \cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3}          & 5.6753e-2                  & 1.7716e-1                 & 4.9584e-1                                                                 & 1.9168e-1                                                               & 1.1071e-1                 & 2.1053e-1                  & 1.1538e-1                 & \textbf{5.4464e-2}                                                       \\
+                       &                             & 7.66e-3$\approx$                   & 4.20e-2+                  & 2.94e-2+                                                                  & 3.77e-2+                                                                & 1.74e-2+                  & 5.69e-2+                   & 6.63e-3+                  & 7.77e-3
+                       \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{DTLZ7} & \multirow{2}{*}{\textbf{2}} & \textbf{3.4086e-1}         & 1.0782e+0                 & 9.9448e-1                                                                 & 2.6858e+0                                                               & 3.3967e+0                 & 6.8842e-1                  & 3.5514e-1                 & 1.1452e+0                                                                \\
+                       &                             & 2.23e-1-          & 7.02e-1 -                 & 2.20e-1 -                                                                 & 2.33e-1+                                                                & 1.22e+0+                  & 4.10e-1-                   & 1.06e-1-                  & 9.16e-2                                                                  \\ \cdashline{2-10}[1pt/1pt]
+                       & \multirow{2}{*}{3}          & 2.9323e-1                  & 8.5351e-1                 & 1.0111e+0                                                                 & 2.2453e+0                                                               & 3.2980e+0                 & 3.7353e-1                  & 2.4787e-1                 & \textbf{1.7611e-1}                                                       \\
+                       &                             & 2.51e-1+                   & 6.14e-1+                  & 4.54e-1+                                                                  & 2.29e-1+                                                                & 7.07e-1+                  & 1.36e-1+                   & 6.82e-2+                  & 1.77e-01                                                       \\ \cdashline{1-10}[1pt/1pt]
+
+\multicolumn{2}{c}{win/tie/lose}                     & \multicolumn{1}{c}{4/1/1}  & \multicolumn{1}{c}{5/0/1} & \multicolumn{1}{c}{5/0/1}                                                 & \multicolumn{1}{c}{6/0/0}                                               & \multicolumn{1}{c}{6/0/0} & \multicolumn{1}{c}{5/0/1}  & \multicolumn{1}{c}{5/0/1} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+\begin{figure*}[ht!]
+\renewcommand{\thefigure}{S2}
+\begin{center}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//NSA//DTLZ7.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//NSA//WFG1.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//NSA//WFG2.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//NSA//IMOP3.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//NSA//IMOP5.eps}}
+\caption{HV values and running time obtained by DK-SAMOEA under different $N_{SA}$}
+\end{center}
+\end{figure*}
+
+
+\begin{figure*}[ht!]
+\renewcommand{\thefigure}{S3}
+\begin{center}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//maxit//DTLZ7.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//maxit//WFG1.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//maxit//WFG2.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//maxit//IMOP3.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//maxit//IMOP5.eps}}
+\caption{HV values and running time obtained by DK-SAMOEA under different $max\_it$}
+\end{center}
+\end{figure*}
+
+
+
+\begin{figure*}[ht!]
+\renewcommand{\thefigure}{S4}
+\begin{center}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//Numup//DTLZ7.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//Numup//WFG1.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//Numup//WFG2.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//Numup//IMOP3.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//Numup//IMOP5.eps}}
+\caption{HV values and running time obtained by DK-SAMOEA under different $NumUp$}
+\end{center}
+\end{figure*}
+
+
+\begin{table*}[htbp!]
+\renewcommand{\thetable}{S6}
+\centering
+\caption{HV values obtained by DK-SAMOEA and 7 comparison algorithms on WFGs when $D$=10}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem               & $Nf$                 & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA}   & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD}  & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO}   & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{4}{*}{WFG1} & \multirow{2}{*}{2} & 1.4000e-1                  & 1.5330e-1                  & 1.2843e-1                                                                 & 8.4644e-2                                                               & 1.5369e-1                  & 1.5135e-1                  & 1.5551e-1                  & \textbf{1.6546e-1}                                                       \\
+                      &                    & 5.52e-2+                   & 7.24e-3$\approx$                    & 1.78e-2+                                                                  & 6.82e-3+                                                                & 2.85e-3$\approx$                    & 9.85e-3+                   & 2.82e-2$\approx$                    & 2.14e-03                                                        \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 2.7658e-1                  & 3.0308e-1                  & 2.6227e-1                                                                 & 1.7267e-1                                                               & 2.7314e-1                  & 2.5485e-1                  & 3.0958e-1                  & \textbf{3.1113e-1}                                                       \\
+                      &                    & 6.19e-2+                   & 2.89e-2$\approx$                    & 1.07e-2+                                                                  & 3.52e-2+                                                                & 1.96e-3+                   & 1.22e-2+                   & 4.52e-2$\approx$                    & 1.24e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG2} & \multirow{2}{*}{2} & \textbf{4.4631e-1}         & 4.5142e-1                  & 3.5653e-1                                                                 & 3.9283e-1                                                               & 3.6630e-1                  & 3.5607e-1                  & 3.9701e-1                  & 4.3026e-1                                                                \\
+                      &                    & 3.43e-2-          & 4.02e-2-                   & 1.14e-2+                                                                  & 1.62e-2+                                                                & 6.24e-3+                   & 6.93e-3+                   & 1.66e-2+                   & 3.83e-2                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{8.1362e-1}         & 7.5195e-1                  & 6.6869e-1                                                                 & 6.8389e-1                                                               & 7.0555e-1                  & 7.9370e-1                  & 7.6476e-1                  & 7.5542e-1                                                                \\
+                      &                    & 1.77e-2-         & 3.14e-2$\approx$                    & 2.93e-2+                                                                  & 2.06e-2+                                                                & 5.06e-2+                   & 2.57e-2+                   & 4.75e-2$\approx$                    & 3.96e-02                                                                 \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG3} & \multirow{2}{*}{2} & 5.2817e-1                  & 4.7442e-1                  & 4.5131e-1                                                                 & 4.5284e-1                                                               & 4.1823e-1                  & 4.6670e-1                  & 4.3287e-1                  & \textbf{5.3448e-1}                                                       \\
+                      &                    & 1.49e-2$\approx$                    & 2.38e-2+                   & 1.05e-2+                                                                  & 1.08e-2+                                                                & 2.84e-1+                   & 6.29e-3+                   & 3.7e-2+                   & 3.89e-3                                                        \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 2.7855e-1                  & 2.0487e-1                  & 1.6487e-1                                                                 & 2.2773e-1                                                               & 1.9077e-1                  & 2.4377e-1                  & 2.4923e-1                  & \textbf{2.9282e-1}                                                       \\
+                      &                    & 1.36e-2$\approx$                    & 2.79e-2+                   & 1.12e-2+                                                                  & 6.73e-2+                                                                & 1.61e-2+                   & 1.90e-2+                   & 2.60e-2+                   & 4.90e-3                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG4} & \multirow{2}{*}{2} & 2.4213e-1                  & 2.3344e-1                  & 2.2579e-1                                                                 & 2.0920e-1                                                               & 2.2355e-1                  & 2.4055e-1                  & 2.4200e-1                  & \textbf{2.6438e-1}                                                       \\
+                      &                    & 5.08e-3+                   & 3.27e-3+                   & 1.06e-2+                                                                  & 4.84e-3+                                                                & 1.14e-2+                   & 1.00e-2+                   & 1.23e-2+                   & 4.15e-3                                                        \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 4.4164e-1                  & 3.9514e-1                  & 3.7394e-1                                                                 & 2.9587e-1                                                               & 3.5755e-1                  & 3.4071e-1                  & 4.2146e-1                  & \textbf{4.5170e-1}                                                       \\
+                      &                    & 1.51e-2$\approx$                    & 2.37e-2+                   & 1.47e-2+                                                                  & 1.93e-2+                                                                & 2.77e-2+                   & 9.14e-3+                   & 1.09e-2$\approx$                   & 9.82e-3                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG5} & \multirow{2}{*}{2} & \textbf{2.9611e-1}         & 2.4898e-1                  & 2.3028e-1                                                                 & 1.9615e-1                                                               & 2.6692e-1                  & 2.8860e-1                  & 2.956e-1                   & 2.8790e-1                                                                \\
+                      &                    & 7.62e-3$\approx$          & 2.10e-2+                   & 8.35e-3+                                                                  & 1.01e-2+                                                                & 1.118e-2+                  & 1.43e-2+                   & 1.15e-2+                   & 2.16e-3                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 4.5186e-1                  & 4.4084e-1                  & 3.0392e-1                                                                 & 2.9216e-1                                                               & 3.7643e-1                  & 3.4312e-1                  & 4.0700e-1                  & \textbf{4.6012e-1}                                                       \\
+                      &                    & 1.70e-2$\approx$                    & 2.31e-2$\approx$                    & 1.19e-2+                                                                  & 2.95e-2+                                                                & 2.18e-2+                   & 1.50e-2+                   & 1.77e-2+                   & 1.00e-2                                                        \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG6} & \multirow{2}{*}{2} & 1.9378e-1                  & 2.0530e-1                  & 1.7624e-1                                                                 & 1.7285e-1                                                               & 1.8719e-1                  & 1.7307e-1                  & 1.8146e-1                  & \textbf{2.5639e-1}                                                       \\
+                      &                    & 3.62e-2+                   & 2.18e-2+                   & 2.41e-2+                                                                  & 9356e-3+                                                                & 2.84e-2+                   & 1.68e-2+                   & 2.22e-2+                   & 1.40e-2                                                        \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 3.5716e-1                  & 2.7763e-1                  & 2.3313e-1                                                                 & 2.3630e-1                                                               & 2.5870e-1                  & 2.6160e-1                  & 2.7590e-1                  & \textbf{4.1518e-1}                                                       \\
+                      &                    & 5.27e-2+                   & 2.15e-2+                   & 7.49e-3+                                                                  & 5.06e-2+                                                                & 2.96e-2+                   & 2084e-2+                   & 2.65e-2+                   & 2.43e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG7} & \multirow{2}{*}{2} & \textbf{2.4479e-1}         & 2.1463e-1                  & 1.9994e-1                                                                 & 1.5865e-1                                                               & 2.3984e-1                  & 2.3382e-1                  & 2.4335e-1                  & 2.3965e-1                                                                \\
+                      &                    & 1.06e-2$\approx$          & 7.82e-2+                   & 7.99e-3+                                                                  & 8.20e-3+                                                                & 1.46e-2$\approx$                    & 1.53e-2$\approx$                    & 9.32e-3+                   & 3.50e-3                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 4.1138e-1                  & 3.2554e-1                  & 2.8203e-1                                                                 & 3.0333e-1                                                               & 3.6009e-1                  & 3.1184e-1                  & 3.5941e-1                  & \textbf{4.2139e-1}                                                       \\
+                      &                    & 2.77e-2$\approx$                    & 1..46e-2+                  & 6.73e-3+                                                                  & 2.29e-2+                                                                & 3.47e-2+                   & 1.27e-2+                   & 2.04e-2+                   & 5.76e-3                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG8} & \multirow{2}{*}{2} & 1.5393e-1                  & 1.5829e-1                  & 1.4157e-1                                                                 & 1.616e-1                                                                & 1.5071e-1                  & 1.4745e-1                  & 1.5235e-1                  & \textbf{1.5985e-1}                                                       \\
+                      &                    & 1.02e-1$\approx$                    & 3.78e-3$\approx$                    & 1.94e-2+                                                                  & 5.14e-3$\approx$                                                                & 5.41e-1$\approx$                    & 1.08e-2+                   & 16.89e-3$\approx$                  & 7.49e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 1.5393e-1                  & 1.5829e-1                  & 1.4157e-1                                                                 & 1.4516e-1                                                               & 1.5071e-1                  & 1.4745e-1                  & 1.5234e-1                  & \textbf{2.3157e-1}                                                       \\
+                      &                    & 1.02e-2+                   & 3.78e-3+                   & 1.94e-2+                                                                  & 5.14e-3+                                                                & 5.41e-3+                   & 1.08e-2+                   & 6.89e-3+                   & 2.16e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG9} & \multirow{2}{*}{2} & 2.0708e-1                  & 2.4044e-1                  & 1.9142e-1                                                                 & 1.9037e-1                                                               & 2.4032e-1                  & 2.2239e-1                  & 2.1067e-1                  & \textbf{2.6479e-1}                                                       \\
+                      &                    & 2.90e-2+                   & 2.49e-2+                   & 3.04e-2+                                                                  & 1.41e-2+                                                                & 1.97e-2+                   & 1.97e-2+                   & 2.23e-2+                   & 2.15e-2                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{3.4922e-1}         & 3.3319e-1                  & 2.8334e-1                                                                 & 2.7711e-1                                                               & 3.3060e-1                  & 2.7590e-1                  & 3.2850e-1                  & 3.2811e-1                                                                \\
+                      &                    & 6.61e-2-          & 2.46e-2-                   & 2.78e-2+                                                                  & 1.97e-2+                                                                & 1.10e-2$\approx$                    & 2.74e-2+                   & 5.20e-2$\approx$                    & 3.72e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multicolumn{2}{c}{win/tie/lose}           & \multicolumn{1}{c}{7/8/3}  & \multicolumn{1}{c}{11/5/2} & \multicolumn{1}{c}{18/0/0}                                                & \multicolumn{1}{c}{17/1/0}                                              & \multicolumn{1}{c}{14/4/0} & \multicolumn{1}{c}{17/1/0} & \multicolumn{1}{c}{12/6/0} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+
+
+
+\begin{table*}[htbp!]
+\renewcommand{\thetable}{S7}
+\centering
+\caption{IGD values obtained by DK-SAMOEA and 7 comparison algorithms on WFGs when $D$=10}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem               & $Nf$                 & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA}   & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD}  & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO}   & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{4}{*}{WFG1} & \multirow{2}{*}{2} & 1.3372e+0                  & 1.3421e+0                  & 1.3188e+0                                                                 & 1.3936e+0                                                               & 1.3954e+0                  & 1.300e+0                   & 1.2823e+0                  & \textbf{1.2469e+0}                                                       \\
+                      &                    & 1.54e-1+                   & 4.79e-2+                   & 2.84e-2+                                                                  & 3.91e-2+                                                                & 5.71e-3+                   & 1.14e-2+                   & 1.05e-1+                   & 3.23e-2                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 1.5997e+0                  & \textbf{1.4386e+0}         & 1.6216e+0                                                                 & 1.8220e+0                                                               & 1.6067e+0                  & 1.6388e+0                  & 1.4783e+0                  & 1.4525e+0                                                                \\
+                      &                    & 2.11e-1+                   & 8.83e-2-          & 3.12e-2+                                                                  & 1.47e-1+                                                                & 1.98e-2+                   & 3.53e-2+                   & 1.37e-1$\approx$                   & 3.31e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG2} & \multirow{2}{*}{2} & 4.0251e-1                  & 4.0248e-1                  & 4.1253e-1                                                                 & \textbf{3.8441e-1}                                                      & 5.8842e-1                  & 4.0670e-1                  & 4.0820e-1                  & 4.1067e-1                                                                \\
+                      &                    & 2.23e-1-                   & 7.17e-2$\approx$                   & 3.38e-2+                                                                  & 2.69e-2-                                                      & 1.06e-1+                   & 4.14e-2$\approx$                   & 3.11e-2$\approx$                   & 1.24e-1                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{3.0270e-1}         & 4.5656e-1                  & 5.1076e-1                                                                 & 5.2008e-1                                                               & 5.5825e-1                  & 5.4158e-1                  & 5.5211e-1                  & 5.6696e-1                                                                \\
+                      &                    & 3.93e-2-          & 5.00e-2-                   & 5.21e-2+                                                                  & 4.99e-2+                                                                & 1.12e-1$\approx$                   & 4.27e-2-                   & 6.24e-2$\approx$                   & 1.36e-1                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG3} & \multirow{2}{*}{2} & 9.6905e-2                  & 2.0925e-1                  & 2.8745e-1                                                                 & 2.3765e-1                                                               & 2.5681e-1                  & 2.1397e-1                  & 2.8380e-1                  & \textbf{9.1890e-2}                                                       \\
+                      &                    & 2.94e-2$\approx$                   & 3.44e-2+                   & 3.34e-2+                                                                  & 1.74e-2+                                                                & 8369e-2+                   & 1.07e-2+                   & 4.52e-2+                   & 5.27e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 2.7976e-1                  & 4.9179e-1                  & 5.8944e-1                                                                 & 4.00e-1                                                                 & 4.5565e-                   & 4.3874e-1                  & 3.8245e-1                  & \textbf{2.7151e-1}                                                       \\
+                      &                    & 3.41e-2$\approx$                   & 5.97e-2+                   & 2.22e-2+                                                                  & 1.69e-2+                                                                & 7.21e-2+                   & 6.49e-2+                   & 5.82e-2+                   & 1.04e-2                                                        \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG4} & \multirow{2}{*}{2} & 1.4930e-1                  & 1.7442e-1                  & 2.3334e-1                                                                 & 5.3449e-1                                                               & 2.0522e-1                  & 2.0843e-1                  & 2.0040e-1                  & \textbf{1.4411e-1}                                                       \\
+                      &                    & 1.14e-2$\approx$                   & 1.79e-2+                   & 2.16e-2+                                                                  & 6.80e-2+                                                                & 3.12e-2+                   & 1.49e-2+                   & 3.16e-2+                   & 8.26e-3                                                        \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{3.2263e-1}         & 4.2865e-1                  & 4.3940e-1                                                                 & 8.0185e-1                                                               & 4.6971e-1                  & 4.9625e-1                  & 3.7330e-1                  & 3.5186e-1                                                                \\
+                      &                    & 1.22e-2-         & 9.68e-2+                   & 2.85e-2+                                                                  & 1.32e-1+                                                                & 5.07e-2+                   & 2.91e-2+                   & 2.14e-2$\approx$                   & 1.77e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG5} & \multirow{2}{*}{2} & 1.0940e-1                  & 2.1609e-1                  & 2.6941e-1                                                                 & 4.3977e-1                                                               & 1.9231e-1                  & 2.2139e-1                  & 1.6541e-1                  & \textbf{1.0442e-1}                                                       \\
+                      &                    & 1.42e-2$\approx$                   & 4.78e-2+                   & 3.79e-2+                                                                  & 4.60e-2+                                                                & 3.45e-2+                   & 2.74e-2+                   & 2.76e-2+          & 4.80e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{2.8297e-1}         & 3.1758e-1                  & 5.6863e-1                                                                 & 6.4061e-1                                                               & 3.3751e-1                  & 3.6900e-1                  & 3.8116e-1                  & 3.8714e-1                                                                \\
+                      &                    & 4.04e-2-         & 2.38e-2+                   & 2.17e-2+                                                                  & 7.32e-2+                                                                & 6.14e-2+                   & 3.16e-2+                   & 3.60e-2$\approx$                   & 1.20e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG6} & \multirow{2}{*}{2} & 3.3563e-1                  & 3.4141e-1                  & 4.2978e-1                                                                 & 5.0147e-1                                                               & 3.6704e-1                  & 3.5890e-1                  & 3.2307e-1                  & \textbf{1.6694e-1}                                                       \\
+                      &                    & 1.09e-1+                   & 8.28e-2+                   & 5.36e-2+                                                                  & 2.83e-2+                                                                & 8.85e-2+                   & 4.90e-2+                   & 4.48e-2+                   & 1.72e-2                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 4.8620e-1                  & 6.1400e-1                  & 7.3018e-1                                                                 & 8.9781e-1                                                               & 6.6203e-1                  & 6.7517e-1                  & 6.3255e-1                  & \textbf{4.1673e-1}                                                       \\
+                      &                    & 8.28e-2+                   & 4.33e-2+                   & 2.50e-2+                                                                  & 4.33e-2+                                                                & 6.15e-2+                   & 2.10e-2+                   & 3.96e-2+                   & 4.56e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG7} & \multirow{2}{*}{2} & 2.6248e-1                  & 3.4489e-1                  & 3.4774e-1                                                                 & 4.5996e-1                                                               & 3.5570e-1                  & 2.4646e-1                  & 3.9161e-1                  & \textbf{2.3470e-1}                                                       \\
+                      &                    & 2.36e-2+                   & 5.14e-2+                   & 4.57e-2+                                                                  & 6.47e-2+                                                                & 1.08e-1+                   & 2.24e-2$\approx$                   & 9.21e-2+                   & 5.91e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{4.0078e-1}         & 5.7975e-1                  & 6.2847e-1                                                                 & 6.6638e-1                                                               & 4.9782e-1                  & 5.8943e-1                  & 4.9143e-1                  & 4.0307e-1                                                                \\
+                      &                    & 4.25e-2$\approx$        & 5.49e-2+                   & 2.10e-2+                                                                  & 1.25e-1+                                                                & 8.52e-2+                   & 4.64e-2+                   & 4.05e-2+                   & 1.04e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG8} & \multirow{2}{*}{2} & 5.6896e-1                  & 6.8086e-1                  & 7.4772e-1                                                                 & 6.5981e-1                                                               & 6.4492e-1                  & 5.4051e-1                  & 6.3567e-1                  & \textbf{5.3325e-1}                                                       \\
+                      &                    & 4.59e-2+                   & 9.28e-2+                   & 6.63e-2+                                                                  & 3.41e-2+                                                                & 3.12e-2+                   & 4.53e-2$\approx$                  & 5.28e-2+                   & 2.19e-2                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 5.6896e-1                  & 6.0886e-1                  & 7.4772e-1                                                                 & 6.5981e-1                                                               & 6.4492e-1                  & \textbf{5.4236e-1}         & 6.3567e-1                  & 5.9654e-1                                                                \\
+                      &                    & 4.59e-2-                   & 9.28e-2$\approx$                   & 6.63e-2+                                                                  & 3.49e-2+                                                                & 3.12e-2+                   & 4.93e-2-          & 5.28e-2+                   & 4.06e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG9} & \multirow{2}{*}{2} & 3.1423e-1                  & 3.7676e-1                  & 3.6744e-1                                                                 & 4.1591e-1                                                               & 2.4703e-1                  & 3.1525e-1                  & 3.3393e-1                  & \textbf{1.6141e-1}                                                       \\
+                      &                    & 3.86e-2+                   & 5.69e-2+                   & 7.59e-2+                                                                  & 1.65e-2+                                                                & 3.25e-2+                   & 7.67e-2+                   & 7.16e-2+                   & 4.95e-2                                                         \\\cdashline{2-10}[1pt/1pt]
+                      &  \multirow{2}{*}{3}                & 5.0693e-1                  & 5.3014e-1                  & 6.7512e-1                                                                 & 7.4299e-1                                                               & 5.7219e-1                  & 6.7922e-1                  & 5.8123e-1                  & \textbf{5.0149e-1}                                                       \\
+                      &                    & 1.25e-1$\approx$                   & 4.39e-2+                   & 8.24e-2+                                                                  & 8.15e-2+                                                                & 3.97e-+2+                  & 8.14e-2+                   & 1.38e-1+                   & 5.96e-2                                                        \\\cdashline{1-10}[1pt/1pt]
+\multicolumn{2}{c}{win/tie/lose}           & \multicolumn{1}{c}{7/6/5}  & \multicolumn{1}{c}{14/2/2} & \multicolumn{1}{c}{18/0/0}                                                & \multicolumn{1}{c}{17/0/1}                                              & \multicolumn{1}{c}{17/1/0} & \multicolumn{1}{c}{13/3/2} & \multicolumn{1}{c}{13/5/0} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+\begin{table*}[htbp!]
+\renewcommand{\thetable}{S8}
+\centering
+\caption{HV values obtained by DK-SAMOEA and 7 comparison algorithms on WFGs when $D$=20}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem               & $Nf$                 & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA}   & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD} & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{4}{*}{WFG1} & \multirow{2}{*}{2} & 1.1501e-1                  & 1.6750e-1                  & 1.1594e-1                                                                 & 5.9296e-2                                                               & 1.5364e-1                 & 1.2848e-1                  & 1.8469e-1                 & \textbf{1.8679e-1}                                                       \\
+                      &                    & 3.98e-2+                   & 5.65e-3+                   & 1.99e-2+                                                                  & 3.77e-2+                                                                & 5.85e-3+                  & 2.02e-2+                   & 9.94e-3$\approx$                  & 2.85e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 2.4358e-1                  & 2.5420e-1                  & 2.4934e-1                                                                 & 1.3947e-1                                                               & 2.4804e-1                 & 2.4158e-1                  & 2.6910e-1                 & \textbf{2.8089e-1}                                                       \\
+                      &                    & 1.24e-2+                   & 1.45e-2+                   & 5.17e-3+                                                                  & 5.17e-2+                                                                & 7.28e-3+                  & 2.00e-2+                   & 3.70e-2+                  & 2.74e-3                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG2} & \multirow{2}{*}{2} & \textbf{4.5887e-1}         & 4.2464e-1                  & 3.6844e-1                                                                 & 4.2390e-1                                                               & 4.3429e-1                 & 3.8600e-1                  & 4.4958e-1                 & 4.1500e-1                                                                \\
+                      &                    & 3.90e-2-          & 3.22e-2+                   & 1.71e-2+                                                                   & 1.42e-2-                                                                & 1.68e-2-                  & 1.64e-2+                   & 1.50e-2-                  & 2.95e-2                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{6.9980e-1}         & 5.9907e-1                  & 5.3965e-1                                                                 & 6.4685e-1                                                               & 6.0792e-1                 & 5.8792e-1                  & 5.9715e-1                 & 5.5981e-1                                                                \\
+                      &                    & 5.72e-2-         & 4.03e-2-                   & 1.32e-2+                                                                  & 1.73e-2-                                                                & 4.99e-2-                  & 1.13e-2-                   & 5.46e-2-                  & 4.80e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG3} & \multirow{2}{*}{2} & 4.3725e-1                  & 4.1207e-1                  & 3.1333e-1                                                                 & 3.7379e-1                                                               & 4.0248e-1                 & 3.4546e-1                  & 3.7513e-1                 & \textbf{5.1634e-1}                                                       \\
+                      &                    & 1.81e-2+                   & 1.20e-2+                   & 1.09e-2+                                                                  & 7.59e-3+                                                                & 2.56e-2+                  & 9.12e-3+                   & 2.98e-2+                  & 4.16e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 2.1580e-1                  & 1.7182e-1                  & 1.3686e-1                                                                 & 1.9885e-1                                                               & 1.7998e-1                 & 1.6346e-1                  & 2.0094e-1                 & \textbf{2.2275e-1}                                                       \\
+                      &                    & 1.78e-2$\approx$                   & 1.20e-2+                   & 8.67e-3+                                                                  & 4.25e-3+                                                                & 2.39e-2+                  & 6.32e-3+                   & 1.76e-2+                  & 1.29e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG4} & \multirow{2}{*}{2} & 2.3670e-1                  & 2.3798e-1                  & 1.9006e-1                                                                 & 2.3785e-1                                                               & 2.3540e-1                 & 1.9191e-1                  & 2.4259e-1                 & \textbf{2.4299e-1}                                                       \\
+                      &                    & 7.24e-3$\approx$                   & 3.48e-3$\approx$                  & 6.07e-3+                                                                  & 7.25e-3$\approx$                                                                & 1.43e-2$\approx$                  & 7.12e-3+                   & 1.43e-2$\approx$                  & 5.66e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 3.43686e-1                 & 34785e-1                   & 3.4127e-1                                                                 & 2.9786e-1                                                               & 3.4085e-1                 & 3.4093e-1                  & 3.4785e-1                 & \textbf{3.4996e-1}                                                       \\
+                      &                    & 1.51e-2$\approx$                   & 2.13e-2$\approx$                  & 6.13e-3$\approx$                                                                  & 1.20e-2+                                                                & 2.54e-2$\approx$                  & 4.21e-3$\approx$                   & 2.17e-2$\approx$                  & 9.35e-3                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG5} & \multirow{2}{*}{2} & \textbf{2.6440e-1}         & 1.9564e-1                  & 1.6413e-1                                                                 & 1.3429e-1                                                               & 2.5364e-1                 & 1.3316e-1                  & 2.5356e-1                 & 2.5027e-1                                                                \\
+                      &                    & 8.80e-2-          & 1.26e-2+                   & 6.10e-3+                                                                  & 3.69e-3+                                                                & 1.38e-2$\approx$                  & 5.93e-3+                   & 1.55e-2$\approx$                  & 1.43e-2                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 3.5247e-1                  & \textbf{3.5317e-1}         & 2.3960e-1                                                                 & 2.3471e-1                                                               & 3.4931e-1                 & 2.4818e-1                  & 3.2849e-1                 & 3.4925e-1                                                                \\
+                      &                    & 1.10e-2-                   & 2.31e-2-          & 6.80e-3+                                                                  & 5.50e-3+                                                                & 2.10e-2$\approx$                  & 9.92e-3+                   & 1.18e-2+                  & 8.20e-3                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG6} & \multirow{2}{*}{2} & 1.3511e-1                  & 1.5311e-1                  & 7.3918e-2                                                                 & 1.1696e-1                                                               & 1.7164e-1                 & 8.4697e-2                  & 1.4312e-1                 & \textbf{1.7258e-1}                                                       \\
+                      &                    & 1.15e-2+                   & 1.95e-2+                   & 3.02e-3+                                                                  & 8.57e-3+                                                                & 1.51e-2$\approx$                  & 8.11e-3+                   & 1.78e-2+                  & 2.31e-2                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 1.8041e-1                  & 1.5422e-1                  & 1.2739e-1                                                                 & 1.2762e-1                                                               & 1.8748e-1                 & 1.3765e-1                  & 1.5817e-1                 & \textbf{1.8860e-1}                                                       \\
+                      &                    & 1.41e-2$\approx$                   & 2.32e-2+                   & 3.11e-3+                                                                  & 8.48e-3+                                                                & 4.46e-2$\approx$                  & 3.35e-3+                   & 2.91e-2+                  & 2.31e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG7} & \multirow{2}{*}{2} & \textbf{1.9922e-1}         & 1.7144e-1                  & 1.2212e-1                                                                 & 1.6467e-1                                                               & 1.8613e-1                 & 1.2869e-1                  & 1.7301e-1                 & 1.8526e-1                                                                \\
+                      &                    & 8.59e-3-          & 1.04e-2+                   & 2.98e-3+                                                                  & 3.72e-3+                                                                & 1.04e-2$\approx$                  & 6.50e-3+                   & 1.89e-2+                  & 1.19e-2                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{3.2186e-1}         & 2.5997e-1                  & 2.2802e-1                                                                 & 2.9257e-1                                                               & 2.9476e-1                 & 2.3747e-1                  & 2.9860e-1                 & 2.9311e-1                                                                \\
+                      &                    & 1.60e-2-         & 1.62e-2+                   & 4.96e-3+                                                                  & 8.49e-3$\approx$                                                                & 3.36e-2$\approx$                  & 4.95e-3+                   & 1.55e-2$\approx$                  & 1.61e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG8} & \multirow{2}{*}{2} & \textbf{1.6059e-1}         & 1.5662e-1                  & 1.2139e-1                                                                 & 1.3771e-1                                                               & 1.4304e-1                 & 1.3346e-1                  & 1.5273e-1                 & 1.5118e-1                                                                \\
+                      &                    & 1.56e-2-          & 6.82e-3$\approx$                   & 5.17e-3+                                                                  & 3.02e-3+                                                                & 6.14e-3+                  & 5.28e-3+                   & 7.83e-3$\approx$                  & 1.24e-2                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{2.2086e-1}         & 1.8718e-1                  & 2.1083e-1                                                                 & 2.1362e-1                                                               & 2.1579e-1                 & 1.8733e-1                  & 2.1530e-1                 & 2.1492e-1                                                                \\
+                      &                    & 1.56e-2-        & 1.37e-2+                   & 8.95e-3$\approx$                                                                  & 6.34e-3$\approx$                                                                & 1.64e-2$\approx$                  & 8.16e-3+                   & 1.56e-2$\approx$                  & 7.79e-3                                                                  \\\cdashline{2-10}[1pt/1pt]
+\multirow{4}{*}{WFG9} & \multirow{2}{*}{2} & 1.5972e-1                  & 1.4891e-1                  & 1.0281e-1                                                                 & 1.5984e-1                                                               & 1.4632e-1                 & 1.2539e-1                  & 2.1003e-1                 & \textbf{2.1051e-1}                                                       \\
+                      &                    & 3.18e-2+                   & 3.80e-2+                   & 1.34e-2+                                                                  & 2.06e-2+                                                                & 9.39e-3+                  & 1.19e-2+                   & 4.11e-2$\approx$                  & 1.57e-2                                                        \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 2.4758e-1                  & 2.2969e-1                  & 1.9399e-1                                                                 & 2.1295e-1                                                               & 2.4921e-1                 & 2.0827e-1                  & 2.5866e-1                 & \textbf{2.6090e-1}                                                       \\
+                      &                    & 4.02e-2+                   & 3.89e-2+                   & 1.47e-2+                                                                  & 9.18e-3+                                                                & 1.49e-2+                  & 2.68e-2+                   & 3.17e-2$\approx$                  & 2.49e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multicolumn{2}{c}{win/tie/lose}           & \multicolumn{1}{c}{6/4/8}  & \multicolumn{1}{c}{13/3/2} & \multicolumn{1}{c}{16/2/0}                                                & \multicolumn{1}{c}{13/3/2}                                              & \multicolumn{1}{c}{7/9/2} & \multicolumn{1}{c}{16/1/1} & \multicolumn{1}{c}{7/9/2} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+
+
+
+
+
+% you can choose not to have a title for an appendix
+% if you want by leaving the argument blank
+
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{multirow}
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{multirow}
+
+
+
+
+\begin{table*}[htbp!]
+\renewcommand{\thetable}{S9}
+ \centering
+\caption{IGD values obtained by DK-SAMOEA and 7 comparison algorithms on WFGs when $D$=20}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem               & $Nf$                 & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD}  & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{4}{*}{WFG1} & \multirow{2}{*}{2} & 1.3570e+0                  & 1.2514e+0                 & 1.3426e+0                                                                 & 1.4849e+0                                                               & 1.2937e+0                  & 1.3402e+0                  & 1.1919e+0                 & \textbf{1.1400e+0}                                                       \\
+                      &                    & 5.84e-2+                   & 4.19e-2+                  & 3.34e-2+                                                                  & 1.07e-1+                                                                & 1.52e-2+                   & 3.34e-2+                   & 3.70e-2$\approx$                  & 4.38e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 1.6072e+0                  & 1.5567e+0                 & 1.6358e+0                                                                 & 2.0171e+0                                                               & 1.6274e+0                  & 1.6831e+0                  & 1.4573e+0                 & \textbf{1.4368e+0}                                                       \\
+                      &                    & 5.30e-2+                   & 4.47e-2+                  & 6.39e-3+                                                                  & 2.12e-1+                                                                & 1.87e-2+                   & 6.79e-2+                   & 9.59e-2$\approx$                  & 6.31e-3                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG2} & \multirow{2}{*}{2} & \textbf{4.4759e-1}         & 5.3211e-1                 & 6.5784e-1                                                                 & 5.3627e-1                                                               & 6.0951e-1                  & 5.6606e-1                  & 4.4903e-1                 & 6.3326e-1                                                                \\
+                      &                    & 6.95e-2-          & 3.54e-2-                  & 5.67e-2+                                                                  & 4.09e-2-                                                                & 1.50e-1-                   & 3.44e-2-                   & 2.47e-2-                  & 2.52e-1                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{5.3295e-1}         & 7.6871e-1                 & 9.2093e-1                                                                 & 6.4048e-1                                                               & 8.3783e-1                  & 7.1584e-1                  & 7.7486e-1                 & 8.1061e-1                                                                \\
+                      &                    & 1.54e-1-          & 1.05e-1-                  & 4.08e-2+                                                                  & 5.67e-2-                                                                & 2.94e-1+                   & 3.54e-2-                   & 1.46e-1-                  & 4.55e-1                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG3} & \multirow{2}{*}{2} & 2.7685e-1                  & 3.2878e-1                 & 5.7026e-1                                                                 & 4.0121e-1                                                               & 3.6198e-1                  & 4.6744e-1                  & 4.1080e-1                 & \textbf{1.3999e-1}                                                       \\
+                      &                    & 4.26e-2+                   & 3.22e-2+                  & 3.24e-2+                                                                  & 1.46e-2+                                                                & 4.99e-2+                   & 2.31e-2+                   & 5.60e-2+                  & 7.69e-3                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 4.4690e-1                  & 5.7503e-1                 & 6.7603e-1                                                                 & 4.4133e-1                                                               & 5.1735e-1                  & 6.2695e-1                  & 4.4115e-1                 & \textbf{4.4005e-1}                                                       \\
+                      &                    & 4.72e-2$\approx$                   & 6.20e-2+                  & 3.13e-2+                                                                  & 2.16e-2$\approx$                                                                & 6.03e-2+                   & 1.46e-2+                   & 3.74e-2$\approx$                  & 3.74e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG4} & \multirow{2}{*}{2} & \textbf{2.1706e-1}         & 2.5472e-1                 & 3.8506e-1                                                                 & 4.5789e-1                                                               & 3.2019e-1                  & 3.3345e-1                  & 2.7325e-1                 & 2.1943e-1                                                                \\
+                      &                    & 3.07e-2$\approx$          & 2.87e-2+                  & 1.94e-2+                                                                  & 7.53e-1+                                                                & 5.42e-2+                   & 2.51e-2+                   & 5.78e-2+                  & 1.64e-2                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 4.5981e-1                  & 4.5698e-1                 & 5.3182e-1                                                                 & 7.7486e-1                                                               & 5.9905e-1                  & 5.9435e-1                  & 4.9128e-1                 & \textbf{4.5664e-1}                                                       \\
+                      &                    & 2.29e-2$\approx$                   & 4.25e-2$\approx$                  & 1.57e-2+                                                                  & 8.78e-2+                                                                & 8.62e-2+                   & 4.09e-2+                   & 4.21e-2+                  & 2.09e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG5} & \multirow{2}{*}{2} & 3.1858e-1                  & 3.2260e-1                 & 4.1347e-1                                                                 & 5.8002e-1                                                               & 2.3197e-1                  & 4.4611e-1                  & 2.7256e-1                 & \textbf{1.7952e-1}                                                       \\
+                      &                    & 2.18e-1+                   & 4.95e-1+                  & 2.68e-2+                                                                  & 1.97e-2+                                                                & 4.26e-2+                   & 2.34e-2+                   & 6.76e-2+                  & 2.83e-2                                                         \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{4.9247e-1}         & 5.0221e-1                 & 7.1071e-1                                                                 & 8.0205e-1                                                               & 5.4646e-1                  & 6.7099e-1                  & 5.0138e-1                 & 5.1818e-1                                                               \\
+                      &                    & 3.62e-2-          & 2.64e-2-                  & 2.44e-2+                                                                  & 3.70e-2+                                                                & 4.78e-2+                   & 2.11e-2+                   & 2.87e-2-                  & 4.00e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG6} & \multirow{2}{*}{2} & 4.0458e-1                  & \textbf{3.8763e-1}        & 6.9271e-1                                                                 & 6.5182e-1                                                               & 4.0322e-1                  & 5.7987e-1                  & 4.0075e-1                 & 4.1765e-1                                                                \\
+                      &                    & 2.68e-2-                   & 4.893e-2-        & 4.78e-2+                                                                  & 2.23e-2+                                                                & 4.74e-2-                   & 2.21e-2+                   & 4.52-2-                   & 6.87e-2;                                                                 \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 6.0576e-1                  & \textbf{6.0352e-1}        & 8.5282e-1                                                                 & 9.4140e-1                                                               & 6.1477e-1                  & 8.1883e-1                  & 6.1170e-1                 & 6.3587e-1                                                                \\
+                      &                    & 2.90e-2-                   & 4.36e-2-         & 1.31e-2+                                                                  & 3.87e-2+                                                                & 1.23e-1-                   & 2.11e-2+                   & 4.93e-2-                  & 3.2787e-2                                                                \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG7} & \multirow{2}{*}{2} & \textbf{3.3378e-1}         & 4.1148e-1                 & 4.9051e-1                                                                 & 3.4018e-1                                                               & 3.5594e-1                  & 4.6931e-1                  & 4.4075e-1                 & 3.5306e-1                                                                \\
+                      &                    & 2.03e-2-         & 3.83e-2+                  & 1.54e-2+                                                                  & 2.51e-2-                                                                & 6.62e-1$\approx$                   & 2.31e-2+                   & 52e-2+                    & 2.20e-2                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{5.0261e-1}         & 5.0873e-1                 & 6.7441e-1                                                                 & 6.0824e-1                                                               & 6.2330e-1                  & 6.7117e-1                  & 5.0599e-1                 & 5.1160e-1                                                                \\
+                      &                    & 3.58e-2-          & 4.79e-2-                  & 1.63e-2+                                                                  & 4.27e-2+                                                                & 1.06e-1+                   & 2.68e-2+                   & 4.48e-2-                  & 3.20e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG8} & \multirow{2}{*}{2} & \textbf{4.4261e-1}         & 4.5662e-1                 & 6.2364e-1                                                                 & 4.5874e-1                                                               & 5.4518e-1                  & 5.1683e-1                  & 5.0522e-1                 & 4.8375e-1                                                                \\
+                      &                    & 1.74e-2-          & 7.22e-2-                  & 4.61e-2+                                                                  & 2.15e-2-                                                                & 4.82e-2+                   & 1.27e-2+                   & 3.78e-2+                  & 1.62e-2                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & \textbf{7.0105e-1}         & 7.1903e-1                 & 8.1258e-1                                                                 & 7.9863e-1                                                               & 8.8053e-1                  & 7.1722e-1                  & 7.0466e-1                 & 7.1058e-1                                                                \\
+                      &                    & 3.02e-2-          & 5.83e-2$\approx$                  & 2.96e-2+                                                                  & 4.42e-2+                                                                & 4.28e-2+                   & 2.36e-2$\approx$                   & 4.32e-2-                  & 2.25e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{4}{*}{WFG9} & \multirow{2}{*}{2} & 4.3200e-1                  & \textbf{3.0441e-1}        & 3.8506e-1                                                                 & 5.7340e-1                                                               & 4.5522e-1                  & 5.1212e-1                  & 3.8135e-1                 & 3.9074e-1                                                                \\
+                      &                    & 6.44e-2+                   & 9.22e-2-         & 1.94e-2-                                                                  & 5.35e-2+                                                                & 3.56e-2+                   & 4.31e-2+                   & 1.00e-1-                  & 4.08e-2                                                                  \\\cdashline{2-10}[1pt/1pt]
+                      & \multirow{2}{*}{3} & 6.5230e-1                  & 6.5777e-1                 & 9.1644e-1                                                                 & 9.1981e-1                                                               & 6.4855e-1                  & 8.5918e-1                  & \textbf{6.4168e-1}        & 6.5592e-1                                                                \\
+                      &                    & 1.10e-1$\approx$                   & 1.19e-1$\approx$                  & 4.86e-2+                                                                  & 3.92e-2+                                                                & 4.35e-2-                   & 4.46e-2+                   & 8.69e-2-         & 4.74e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multicolumn{2}{c}{win/tie/lose}           & \multicolumn{1}{c}{5/4/9}  & \multicolumn{1}{c}{7/3/8} & \multicolumn{1}{c}{17/1/0}                                                & \multicolumn{1}{c}{13/1/4}                                              & \multicolumn{1}{c}{13/1/4} & \multicolumn{1}{c}{15/1/2} & \multicolumn{1}{c}{6/3/9} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+
+\begin{table*}[htbp!]
+\renewcommand{\thetable}{S10}
+\centering
+\caption{HV values obtained by DK-SAMOEA and 7 comparison algorithms on IMOPs}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem                & Nf                 & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD} & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{2}{*}{IMOP1} & \multirow{2}{*}{2} & 5.2851e-1                  & 1.4233e-1                 & 1.2411e-1                                                                 & 9.5763e-2                                                               & 2.5306e-1                 & 4.5440e-1                  & 2.0957e-1                 & \textbf{7.4001e-1}                                                       \\
+                       &                    & 1.12e-1+                  & 5.26e-2+                 & 2.00e-2+                                                                 & 4.45e-3+                                                                & 1.26e-1+                  & 1.18e-1+                  & 1.40e-1+                  & 5.66e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP2} & \multirow{2}{*}{2} & 8.8552e-2                  & 7.9314e-2                 & 7.6712e-2                                                                 & 6.8642e-2                                                               & 7.5269e-2                 & 7.5903e-2                  & 7.7259e-2                 & \textbf{9.2960e-2}                                                       \\
+                       &                    & 1.44e-3+                  & 4.41e-3+                 & 2.21e-3+                                                                 & 5.02e-3+                                                               & 3.67e-3 +                 & 8.79e-3+                  & 3.13e-3+                  & 1.39e-3                                                        \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP3} & \multirow{2}{*}{2} & 2.7070e-1                  & 1.0917e-1                 & 1.0588e-1                                                                 & 3.8042e-2                                                               & 1.4703e-1                 & 1.5430e-1                  & 1.4333e-1                 & \textbf{3.4181e-1}                                                       \\
+                       &                    & 5.93e-2+                  & 3.68e-2+                 & 9.99e-3+                                                                 & 2.32e-2+                                                               & 6.56e-2+                 & 1.72e-2+                  & 3.40e-2+                  & 3.86e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP4} & \multirow{2}{*}{3} & 4.0669e-2                  & 2.7245e-2                 & 2.5803e-2                                                                 & 2.1866e-2                                                               & 9.9591e-2                 & 1.1430e-1                  & 3.4495e-2                 & \textbf{1.1215e-1}                                                       \\
+                       &                    & 2.05e-3+                   & 3.71e-3+                  & 2.27e-3+                                                                  & 1.49e-3+                                                                & 1.06e-1+                  & 1.93e-3$\approx$                  & 2.40e-3+                  & 3.53e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP5} & \multirow{2}{*}{3} & 4.0483e-1                  & 3.3962e-1                 & 2.4950e-1                                                                 & 2.4202e-1                                                               & 2.6730e-1                 & 3.6798e-1                  & \textbf{4.6595e-1}        & 4.4293e-1                                                                \\
+                       &                    & 8.31e-2+                   & 5.99e-2+                  & 2.43e-3+                                                                  & 9.40e-3+                                                                & 2.56e-2+                  & 1.87e-1+                   & 1.84e-2-         & 7.54e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP6} & \multirow{2}{*}{3} & 2.1093e-1                  & 9.8469e-2                 & 7.3862e-2                                                                 & 5.6338e-2                                                               & 1.8066e-1                 & 2.0907e-1                  & 8.9586e-2                 & \textbf{2.1263e-1}                                                       \\
+                       &                    & 9.99e-2$\approx$                    & 2.00e-2+                  & 6.49e-3+                                                                  & 4.89e-3+                                                                & 7.53e-2+                  & 1.67e-2+                   & 8.44e-3+                  & 5.56e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP7} & \multirow{2}{*}{3} & 9.0927e-2                  & 9.0206e-2                 & 7.6389e-2                                                                 & 8.1386e-2                                                               & 9.1756e-2                 & 9.1084e-2                  & 8.9928e-2                 & \textbf{9.1949e-2}                                                       \\
+                       &                    & 1.78e-5+                   & 6.71e-4+                  & 6.94e-3+                                                                  & 7.89e-3+                                                                & 1.73e-3≈                  & 1.98e-3≈                   & 1.18e-3+                  & 4.54e-4                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP8} & \multirow{2}{*}{3} & 1.5936e-1                  & 1.4924e-1                 & 1.0836e-1                                                                 & 1.0689e-1                                                               & 1.0451e-1                 & 1.5033e-1                  & 1.3370e-1                 & \textbf{1.6317e-1}                                                       \\
+                       &                    & 3.42e-2$\approx$                    & 3.31e-2+                  & 1.71e-2+                                                                  & 1.64e-2+                                                                & 1.76e-2+                  & 2.98e-2+                   & 3.69e-2+                  & 2.10e-2                                                        \\\cdashline{1-10}[1pt/1pt]
+\multicolumn{2}{c}{win/tie/lose}            & \multicolumn{1}{c}{6/2/0}  & \multicolumn{1}{c}{8/0/0} & \multicolumn{1}{c}{8/0/0}                                                 & \multicolumn{1}{c}{8/0/0}                                               & \multicolumn{1}{c}{7/1/0} & \multicolumn{1}{c}{6/2/0}  & \multicolumn{1}{c}{7/0/1} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[htbp!]
+\renewcommand{\thetable}{S11}
+\centering
+\caption{IGD values obtained by DK-SAMOEA and 7 comparison algorithms on IMOPs}
+\begin{tabular}{@{}ccllllllll@{}}
+\toprule
+Problem                & Nf                 & \multicolumn{1}{c}{ABSAEA} & \multicolumn{1}{c}{CSEA}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}EDN-\\ ARMOEA\end{tabular}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}He-\\ EMOEA\end{tabular}} & \multicolumn{1}{c}{MCEAD} & \multicolumn{1}{c}{ParEGO} & \multicolumn{1}{c}{REMO}  & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}DK-\\ SAMOEA\end{tabular}} \\ \midrule
+\multirow{2}{*}{IMOP1} & \multirow{2}{*}{2} & 2.8671e-1                  & 7.5721e-1                 & 7.7567e-1                                                                 & 8.0291e-1                                                               & 6.1438e-1                 & 3.6767e-1                  & 7.0167e-1                 & \textbf{2.0519e-1}                                                       \\
+                       &                    & 5.19e-2+                   & 5.05e-2+                  & 2.05e-2+                                                                  & 4.03e-3+                                                                & 1.78e-1+                  & 5.12e-2+                   & 1.19e-1+                  & 2.38e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP2} & \multirow{2}{*}{2} & 7.1564e-1                  & 6.5646e-1                 & 6.2107e-1                                                                 & 5.9451e-1                                                               & 6.4284e-1                 & 5.9729e-1                  & 7.4094e-1                 & \textbf{5.1007e-1}                                                       \\
+                       &                    & 1.31e-1+                   & 2.46e-2+                  & 3.64e-2+                                                                  & 7.27e-3+                                                                & 3.81e-2+                  & 1.07e-1+                   & 2.83e-2+                  & 4.79e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP3} & \multirow{2}{*}{2} & 4.5367e-1                  & 6.7177e-1                 & 7.0978e-1                                                                 & 7.5131e-1                                                               & 5.9969e-1                 & 5.5175e-1                  & 6.0577e-1                 & \textbf{2.2719e-1}                                                       \\
+                       &                    & 1.16e-1+                   & 1.33e-1+                  & 9.44e-2+                                                                  & 1.50e-2+                                                                & 2.10e-1+                  & 4.01e-2+                   & 1.28e-1+                  & 2.91e-2                                                       \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP4} & \multirow{2}{*}{3} & 7.0217e-1                  & 7.5336e-1                 & 7.5961e-1                                                                 & 7.7580e-1                                                               & 5.0518e-1                 & 3.7309e-1                  & 3.1842e-1                 & \textbf{3.6938e-1}                                                       \\
+                       &                    & 3.21e-3+                   & 1.85e-2+                  & 1.12e-2+                                                                  & 6.97e-3+                                                                & 2.82e-1+                  & 3.12e-3$\approx$                   & 8.80e-3+                  & 7.87e-3                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP5} & \multirow{2}{*}{3} & 4.7627e-1                  & 5.8873e-1                 & 7.1299e-1                                                                 & 7.1305e-1                                                               & 6.9414e-1                 & \textbf{4.2929e-1}         & 5.5388e-1                 & 4.3627e-1                                                                \\
+                       &                    & 1.33e-1+                   & 1.06e-1+                  & 1.68e-5+                                                                  & 1.45e-4+                                                                & 3.57e-2+                  & 2.87e-1$\approx$         & 8.09e-2+                  & 8.48e-2                                                                  \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP6} & \multirow{2}{*}{3} & 4.8121e-1                  & 6.2554e-1                 & 7.2180e-1                                                                 & 7.0514e-1                                                               & 4.8933e-1                 & 4.8288e-1                  & 5.8117e-1                 & \textbf{4.8010e-1}                                                       \\
+                       &                    & 1.16e-1$\approx$                   & 1.03e-1+                  & 8.22e-2+                                                                  & 6.93e-2+                                                                & 8.24e-2+                  & 9.72e-2$\approx$                   & 9.23e-2+                  & 7.21e-2                                                         \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP7} & \multirow{2}{*}{3} & 9.3559e-1                  & 9.3645e-1                 & 9.2451e-1                                                                 & 9.2822e-1                                                               & 9.1419e-1                 & 8.9261e-1                  & 9.2050e-1                 & \textbf{8.7127e-1}                                                       \\
+                       &                    & 1.70e-3+                   & 2.53e-3+                  & 5.28e-3+                                                                  & 7.77e-3+                                                                & 1.78e-2+                  & 9.87e-3+                   & 1.25e-2+                  & 5.62e-3                                                        \\\cdashline{1-10}[1pt/1pt]
+\multirow{2}{*}{IMOP8} & \multirow{2}{*}{3} & 5.7957e-1                  & 6.0634e-1                 & 6.4068e-1                                                                 & 7.0621e-1                                                               & 7.1336e-1                 & 5.3509e-1                  & 5.8730e-1                 & \textbf{5.2500e-1}                                                       \\
+                       &                    & 3.76e-2+                   & 9.23e-2+                  & 8.21e-2+                                                                  & 7.28e-2+                                                                & 5.80e-2+                  & 1.98e-1+                   & 1.29e-1+                  & 4.45e-2                                                        \\\cdashline{1-10}[1pt/1pt]
+\multicolumn{2}{c}{win/tie/lose}            & \multicolumn{1}{c}{7/1/0}  & \multicolumn{1}{c}{8/0/0} & \multicolumn{1}{c}{8/0/0}                                                 & \multicolumn{1}{c}{8/0/0}                                               & \multicolumn{1}{c}{7/1/0} & \multicolumn{1}{c}{6/2/0}  & \multicolumn{1}{c}{8/0/0} & \multicolumn{1}{c}{--}                                                   \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+
+
+\begin{figure*}[htbp!]
+\renewcommand{\thefigure}{S5}
+\begin{center}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP4-ABSAEA.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP4-CSEA.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP4-EDNARMOEAD.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP4-HeEMOEA.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP4-MCEAD.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP4-ParEGO.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP4-REMO.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP4-DK-SAMOEA.eps}}
+\caption{Non-dominated solutions obtained by DK-SAMOEA and the 7 comparison algorithms on IMOP4}
+\end{center}
+\end{figure*}
+
+\begin{figure*}[htbp!]
+\renewcommand{\thefigure}{S6}
+\begin{center}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP8-ABSAEA.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP8-CSEA.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP8-EDNARMOEAD.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP8-HeEMOEA.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP8-MCEAD.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP8-ParEGO.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP8-REMO.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=5cm]{figure//pf//IMOP8-DK-SAMOEA.eps}}
+\caption{Non-dominated solutions obtained by DK-SAMOEA and the 7 comparison algorithms on IMOP8}
+\end{center}
+\end{figure*}
+
+\begin{figure*}[htbp!]
+\renewcommand{\thefigure}{S7}
+\begin{center}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//time//M2D10W+D.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//time//M2D20W+D.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//time//M3D10W+D.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//time//M3D20W+D.eps}}
+\subfigure[]{\includegraphics[width=8cm,height=6cm]{figure//time//IMOP.eps}}
+\caption{ Running time of DK-SAMOEA and the 7 comparison algorithms (unit/s)}
+\end{center}
+\end{figure*}
+
+
+
+
+\clearpage
+
+\begin{figure*}[htbp!]
+\renewcommand{\thefigure}{S8}
+\centering
+{\includegraphics[height=7cm, width=18cm]{figure//house.eps}}
+\caption{Basic appearance of a residential building}
+\end{figure*}
+
+
+
+
+\begin{table*}[t]
+\renewcommand{\thetable}{S12}
+\centering
+\caption{Decision variables and their ranges}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Decision   variables                     & Unit     & Range        \\ \midrule
+Building   orientation                   & $°$        & [0,360]      \\
+Insulation   thickness                   & $m$        & (0.0001,0.1) \\
+Solar   absorption rate of exterior wall & --       & (0.1,1)      \\
+Glazing   u-factor                       & $w/(m^2·k)$ & (2,6)        \\
+Glazing   solar heat gain coefficient    & --       & (0.0001,0.7) \\
+Living   room window length              & $m$        & (0,4.9)      \\
+Living   room window width               & $m$        & (0,3.19)     \\
+Bedroom   window length                  & $m$        & (0,6.9)      \\
+Bedroom   window width                   & $m$        & (0,3.19)     \\
+Kitchen   window length                  & $m$        & (0,5.9)      \\
+Kitchen   window width                   & $m$        & (0,3.19)     \\
+Toilet   window length                   & $m$        & (0,3.9)      \\
+Toilet   window width                    & $m$        & (0,2.19)     \\
+Living   room lighting density           & $w/m^2$     & [4.5,6]      \\
+Bedroom   lighting density               & $w/m^2$     & [5,8]        \\
+Kitchen   lighting density               & $w/m^2$     & [5,6]        \\
+Toilet   lighting density                & $w/m^2 $    & [5.5,8]      \\
+Heating   setpoint temperature           & $℃ $       & [18,23]      \\
+Cooling   setpoint temperature           & $℃ $       & [24,28]      \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+
+\bibliography{ref//ref2}
+
+\end{document}
+
+
